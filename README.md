@@ -17,6 +17,7 @@ Solução
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=lince-open_lince-dictionary-java&metric=coverage)](https://sonarcloud.io/dashboard?id=lince-open_lince-dictionary-java)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=lince-open_lince-dictionary-java&metric=alert_status)](https://sonarcloud.io/dashboard?id=lince-open_lince-dictionary-java)
 
+
 ## Docker Hub
 
 https://hub.docker.com/repository/docker/linceopen/lince-dictionary
@@ -28,6 +29,7 @@ docker run  --name lince-dictionary -p 8080:8080 -t lince-open/lince-dictionary:
 docker tag lince-open/lince-dictionary:latest linceopen/lince-dictionary:latest
 
 docker push linceopen/lince-dictionary:latest
+
 
 ## Execução
 
