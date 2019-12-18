@@ -34,4 +34,3 @@ docker push linceopen/lince-dictionary:latest
 ## Execução
 
 mvn spring-boot:run
-
