@@ -34,3 +34,12 @@ docker push linceopen/lince-dictionary:latest
 ## Execução
 
 mvn spring-boot:run
+
+##AttributeType Min Max
+Caso o DataType seja TEXT, o min e max serão quantidade maxima de caracteres
+INTEGER, DECIMAL, DATA, TIMESTAMP e TIME:  menor e maior valor (inclusive)
+
+#Swagger
+
+http://localhost:8080/swagger-ui.html
+
