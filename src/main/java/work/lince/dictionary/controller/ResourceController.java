@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import work.lince.commons.log.LogExecutionTime;
 import work.lince.dictionary.model.Attribute;
 import work.lince.dictionary.model.Resource;
 import work.lince.dictionary.service.ResourceService;
@@ -18,6 +19,7 @@ import work.lince.dictionary.service.ResourceService;
 import java.util.Collections;
 import java.util.List;
 
+@LogExecutionTime
 @RestController
 @RequestMapping(path = "/definitions/resources")
 public class ResourceController {

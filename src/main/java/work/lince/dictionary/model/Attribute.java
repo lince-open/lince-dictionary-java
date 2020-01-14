@@ -34,7 +34,6 @@ public class Attribute {
     @Column(name = "REQUIRED")
     private Boolean required;
 
-    @JsonIgnore
     @JoinColumn(name = "TYPE_ID")
     private String type;
 
