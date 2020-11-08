@@ -4,41 +4,41 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import work.lince.dictionary.model.AttributeDefinition;
-import work.lince.dictionary.service.AttributeDefinitionService;
+import work.lince.dictionary.model.Type;
+import work.lince.dictionary.service.TypeService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/definitions/attributes")
-public class AttributeDefinitionController {
+@RequestMapping(path = "/types")
+public class TypeController {
 
     @Autowired
-    protected AttributeDefinitionService service;
+    protected TypeService service;
 
     @GetMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public AttributeDefinition findById(@PathVariable("id") final Long id) {
+    public Type findById(@PathVariable("id") final String id) {
         return service.findById(id);
     }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<AttributeDefinition> findAll() {
+    public List<Type> findAll() {
         return service.findAll();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public AttributeDefinition create(@RequestBody @Validated AttributeDefinition body) {
-        return service.create(body);
+    public Type create(@RequestBody @Validated Type body) {
+        return service.saveOrUpdate(body);
     }
 
     @PutMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public AttributeDefinition update(@PathVariable("id") final Long id, @RequestBody @Validated AttributeDefinition body) {
+    public Type update(@PathVariable("id") final String id, @RequestBody @Validated Type body) {
         body.setId(id);
-        return service.update(body);
+        return service.saveOrUpdate(body);
     }
 
 }

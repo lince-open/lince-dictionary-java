@@ -1,10 +1,26 @@
 server:
-  port: 8080
+  port: ${LINCE_DICTIONARY_PORT:8080}
 
 spring:
+  application:
+    name: @project.artifactId@
+
+  profiles:
+    include: management
+
   jackson:
     default-property-inclusion: non_null
+    time-zone: America/Sao_Paulo
 
   datasource:
-    url: jdbc:h2:mem:example
-    platform: h2
+    url: ${LINCE_DICTIONARY_DATASOURCE_URL:jdbc:h2:file:~\.h2\lince-db}
+    platform: ${LINCE_DICTIONARY_DATASOURCE_PLATFORM:h2}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+logging:
+  level:
+    work:
+      lince: INFO

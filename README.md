@@ -24,13 +24,31 @@ https://hub.docker.com/repository/docker/linceopen/lince-dictionary
 
 mvn clean package dockerfile:build
 
-docker run  --name lince-dictionary -p 8080:8080 -t lince-open/lince-dictionary:latest
+docker run --name lince-dictionary \
+-e LINCE_KVS_PORT='8080' \
+-e LINCE_KVS_DATASOURCE_URL='jdbc:h2:file:~/lince-dictionary' \
+-e LINCE_JAVA_OPT='-Xms64m -Xmx128m' \
+-p 51001:8080 \
+-t lince-open/lince-kvs:latest
+
+docker tag lince-open/lince-dictionary:latest linceopen/lince-dictionary:0.0.10
+
+docker push linceopen/lince-dictionary:0.0.10
 
 docker tag lince-open/lince-dictionary:latest linceopen/lince-dictionary:latest
 
 docker push linceopen/lince-dictionary:latest
 
-
 ## Execução
-
 mvn spring-boot:run
+
+
+
+##AttributeType Min Max
+Caso o DataType seja TEXT, o min e max serão quantidade maxima de caracteres
+INTEGER, DECIMAL, DATA, TIMESTAMP e TIME:  menor e maior valor (inclusive)
+
+#Swagger
+
+http://localhost:8080/swagger-ui.html
+
